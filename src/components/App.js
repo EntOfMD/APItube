@@ -5,6 +5,12 @@ import youtube from '../api/youtube';
 class App extends React.Component {
     onTermSubmit = term => {
         console.log(term);
+        youtube.get(`/search`, {
+            //async request & need promise, sends query to params for search
+            params: {
+                q: term
+            }
+        });
     };
 
     render() {
