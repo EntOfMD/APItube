@@ -7,6 +7,11 @@ class SearchBar extends React.Component {
         this.setState({ term: event.target.value });
     };
 
+    onFormSubmit = event => {
+        event.preventDefault();
+        //This prevents the page from reloading everytime query is submitted, good for single page apps!
+    };
+
     render() {
         return (
             <div className="search-bar ui segment">
