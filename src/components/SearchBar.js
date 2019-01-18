@@ -10,6 +10,8 @@ class SearchBar extends React.Component {
     onFormSubmit = event => {
         event.preventDefault();
         //This prevents the page from reloading everytime query is submitted, good for single page apps!
+
+        this.props.onFormSubmit(this.state.term);
     };
 
     render() {
