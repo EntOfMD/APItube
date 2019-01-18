@@ -1,5 +1,5 @@
 import React from 'react';
-import '../css/index.css';
+import '../css/SearchBar.css';
 
 class SearchBar extends React.Component {
     state = { term: '', appName: `justTheBud - a YouTube explorer app` };
