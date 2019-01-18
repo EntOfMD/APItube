@@ -27,9 +27,16 @@ class SearchBar extends React.Component {
                             value={this.state.term}
                             onChange={this.onInputChange}
                             //onChange={e=> this.setState({term:e.target.value})}
+                            className="search-bar-half"
                         />
-                        <div className="searchCount">
-                            Found {this.props.searchCount} videos
+                    </div>
+
+                    {/* Search result length display */}
+                    <div className="searchCount ui mini statistics">
+                        <div className="statistic">
+                            <div className="value">
+                                Found {this.props.searchCount} videos
+                            </div>
                         </div>
                     </div>
                 </form>

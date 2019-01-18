@@ -11,6 +11,7 @@ class App extends React.Component {
                 q: term
             }
         });
+
         this.setState({ search: response.data.items });
     };
 
