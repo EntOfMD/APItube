@@ -2,6 +2,7 @@ import React from 'react';
 import SearchBar from './SearchBar';
 import youtube from '../api/youtube';
 import VideoList from '../components/VideoList';
+import VideoDetail from './VideoDetail';
 
 class App extends React.Component {
     state = { search: [], selectedSearch: null };
@@ -17,7 +18,7 @@ class App extends React.Component {
     };
 
     onSearchSelect = video => {
-        console.log(video.snippet.title, video);
+        this.setState({ selectedSearch: video });
     };
     render() {
         return (
@@ -26,6 +27,7 @@ class App extends React.Component {
                     onFormSubmit={this.onTermSubmit}
                     searchCount={this.state.search.length}
                 />
+                <VideoDetail video={this.state.selectedSearch} />
                 <VideoList
                     onSearchSelect={this.onSearchSelect}
                     videos={this.state.search}
