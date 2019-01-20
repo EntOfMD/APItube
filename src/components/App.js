@@ -6,6 +6,11 @@ import VideoDetail from './VideoDetail';
 
 class App extends React.Component {
     state = { search: [], selectedSearch: null };
+
+    componentDidMount() {
+        this.onTermSubmit('infographic show');
+    }
+
     onTermSubmit = async term => {
         const response = await youtube.get(`/search`, {
             //async request & need promise, sends query to params for search
@@ -27,11 +32,20 @@ class App extends React.Component {
                     onFormSubmit={this.onTermSubmit}
                     searchCount={this.state.search.length}
                 />
-                <VideoDetail video={this.state.selectedSearch} />
-                <VideoList
-                    onSearchSelect={this.onSearchSelect}
-                    videos={this.state.search}
-                />
+                <div className="ui grid">
+                    <div className="row">
+                        <div className="eleven wide column">
+                            {/* there are default of 16 columns */}{' '}
+                            <VideoDetail video={this.state.selectedSearch} />
+                        </div>
+                        <div className="five wide column">
+                            <VideoList
+                                onSearchSelect={this.onSearchSelect}
+                                videos={this.state.search}
+                            />
+                        </div>
+                    </div>
+                </div>
             </div>
         );
     }
