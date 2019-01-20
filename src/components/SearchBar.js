@@ -1,8 +1,11 @@
 import React from 'react';
-import '../css/index.css';
-
+import '../css/SearchBar.css';
+import Favicon from '../css/img.png';
 class SearchBar extends React.Component {
-    state = { term: '', appName: `justTheBud - a YouTube explorer app` };
+    state = {
+        term: '',
+        appName: `APItube- a YouTube explorer app`
+    };
 
     onInputChange = event => {
         this.setState({ term: event.target.value });
@@ -20,7 +23,15 @@ class SearchBar extends React.Component {
             <div className="search-bar ui segment">
                 <form className="ui form" onSubmit={this.onFormSubmit}>
                     <div className="field">
-                        <label className="title">{this.state.appName}</label>
+                        <label className="title">
+                            <img
+                                src={Favicon}
+                                alt="Favicon img"
+                                height="40"
+                                className="image-favicon"
+                            />
+                            <a href="/">{this.state.appName}</a>
+                        </label>
                         <input
                             type="text"
                             placeholder="type to search..."
@@ -34,8 +45,9 @@ class SearchBar extends React.Component {
                     {/* Search result length display */}
                     <div className="searchCount ui mini statistics">
                         <div className="statistic">
-                            <div className="value">
-                                Found {this.props.searchCount} videos
+                            <div className="result">
+                                {' '}
+                                Showing {this.props.searchCount} results...
                             </div>
                         </div>
                     </div>
